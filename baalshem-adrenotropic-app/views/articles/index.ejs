@@ -2,17 +2,18 @@
 <!DOCTYPE HTML>
 <html>
 <body>
-<h1>Articles index</h1>
+<h2>Actions</h2>
 <div style="border: solid 1px black; width: 300px; padding: 0px 20px;">
 <p><a href="/articles/new" title="New Article">Create a New Article</a> | <a href="/authors/new" title="New Author">Create a New Author</a></p>
 </div>
+<br>
 
 <h2>All Articles:</h2>
 
 <% articlesList.forEach(function(article) { %>
 <div style="margin-top: 10px;">
   <a href="/articles/<%= article.id %>"><%= article.title %></a><br />
-  Author: <%= article.Author.first_name  %> <%= article.Author.last_name  %>
+  Author: <a href="/authors/<%= article.Author.id %>"><%= article.Author.first_name  %> <%= article.Author.last_name  %></a>
   <br />
 </div>
 <% }) %>
@@ -20,4 +21,3 @@
 
 </body>
 </html>
-

@@ -1,0 +1,18 @@
+<!--views/authors/index.ejs-->
+<!DOCTYPE HTML>
+<html>
+<body>
+<h2>Actions</h2>
+
+<div style="border: solid 1px black; width: 300px; padding: 0px 20px;">
+<p><a href="/articles/new" title="New Article">Create a New Article</a> | <a href="/authors/new" title="New Author">Create a New Author</a></p>
+</div>
+
+<h2>All Authors</h2>
+<% ejsAuthors.forEach(function(author) { %>
+<div>
+  <a href="/authors/<%= author.id %>"><%= author.first_name %> <%= author.last_name  %></a>
+</div>
+<% }) %>
+</body>
+</html>

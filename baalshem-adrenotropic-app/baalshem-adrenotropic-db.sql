@@ -30,7 +30,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: Articles; Type: TABLE; Schema: public; Owner: brett; Tablespace: 
+-- Name: Articles; Type: TABLE; Schema: public; Owner: mark; Tablespace: 
 --
 
 CREATE TABLE "Articles" (
@@ -43,10 +43,10 @@ CREATE TABLE "Articles" (
 );
 
 
-ALTER TABLE "Articles" OWNER TO brett;
+ALTER TABLE "Articles" OWNER TO mark;
 
 --
--- Name: Articles_id_seq; Type: SEQUENCE; Schema: public; Owner: brett
+-- Name: Articles_id_seq; Type: SEQUENCE; Schema: public; Owner: mark
 --
 
 CREATE SEQUENCE "Articles_id_seq"
@@ -57,17 +57,17 @@ CREATE SEQUENCE "Articles_id_seq"
     CACHE 1;
 
 
-ALTER TABLE "Articles_id_seq" OWNER TO brett;
+ALTER TABLE "Articles_id_seq" OWNER TO mark;
 
 --
--- Name: Articles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: brett
+-- Name: Articles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mark
 --
 
 ALTER SEQUENCE "Articles_id_seq" OWNED BY "Articles".id;
 
 
 --
--- Name: Authors; Type: TABLE; Schema: public; Owner: brett; Tablespace: 
+-- Name: Authors; Type: TABLE; Schema: public; Owner: mark; Tablespace: 
 --
 
 CREATE TABLE "Authors" (
@@ -79,10 +79,10 @@ CREATE TABLE "Authors" (
 );
 
 
-ALTER TABLE "Authors" OWNER TO brett;
+ALTER TABLE "Authors" OWNER TO mark;
 
 --
--- Name: Authors_id_seq; Type: SEQUENCE; Schema: public; Owner: brett
+-- Name: Authors_id_seq; Type: SEQUENCE; Schema: public; Owner: mark
 --
 
 CREATE SEQUENCE "Authors_id_seq"
@@ -93,31 +93,31 @@ CREATE SEQUENCE "Authors_id_seq"
     CACHE 1;
 
 
-ALTER TABLE "Authors_id_seq" OWNER TO brett;
+ALTER TABLE "Authors_id_seq" OWNER TO mark;
 
 --
--- Name: Authors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: brett
+-- Name: Authors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mark
 --
 
 ALTER SEQUENCE "Authors_id_seq" OWNED BY "Authors".id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: brett
+-- Name: id; Type: DEFAULT; Schema: public; Owner: mark
 --
 
 ALTER TABLE ONLY "Articles" ALTER COLUMN id SET DEFAULT nextval('"Articles_id_seq"'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: brett
+-- Name: id; Type: DEFAULT; Schema: public; Owner: mark
 --
 
 ALTER TABLE ONLY "Authors" ALTER COLUMN id SET DEFAULT nextval('"Authors_id_seq"'::regclass);
 
 
 --
--- Data for Name: Articles; Type: TABLE DATA; Schema: public; Owner: brett
+-- Data for Name: Articles; Type: TABLE DATA; Schema: public; Owner: mark
 --
 
 COPY "Articles" (id, title, content, "createdAt", "updatedAt", "AuthorId") FROM stdin;
@@ -125,41 +125,41 @@ COPY "Articles" (id, title, content, "createdAt", "updatedAt", "AuthorId") FROM 
 2   Sequelize Structure Sequelize, an ORM, is supposed to make life easier, but doesn't really. 2015-04-06 15:16:20.891-07  2015-04-06 15:16:20.891-07  2
 \.
 --
--- Name: Articles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: brett
+-- Name: Articles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mark
 --
 SELECT pg_catalog.setval('"Articles_id_seq"', 2, true);
 --
--- Data for Name: Authors; Type: TABLE DATA; Schema: public; Owner: brett
+-- Data for Name: Authors; Type: TABLE DATA; Schema: public; Owner: mark
 --
 COPY "Authors" (id, first_name, last_name, "createdAt", "updatedAt") FROM stdin;
-1   Brett   Levenson    2015-04-06 15:02:15.909-07  2015-04-06 15:02:15.909-07
+1   mark   Levenson    2015-04-06 15:02:15.909-07  2015-04-06 15:02:15.909-07
 2   Delmer  Reed    2015-04-06 15:15:13.937-07  2015-04-06 15:15:13.937-07
 \.
 --
--- Name: Authors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: brett
+-- Name: Authors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mark
 --
 SELECT pg_catalog.setval('"Authors_id_seq"', 2, true);
 --
--- Name: Articles_pkey; Type: CONSTRAINT; Schema: public; Owner: brett; Tablespace: 
+-- Name: Articles_pkey; Type: CONSTRAINT; Schema: public; Owner: mark; Tablespace: 
 --
 ALTER TABLE ONLY "Articles"
     ADD CONSTRAINT "Articles_pkey" PRIMARY KEY (id);
 --
--- Name: Authors_pkey; Type: CONSTRAINT; Schema: public; Owner: brett; Tablespace: 
+-- Name: Authors_pkey; Type: CONSTRAINT; Schema: public; Owner: mark; Tablespace: 
 --
 ALTER TABLE ONLY "Authors"
     ADD CONSTRAINT "Authors_pkey" PRIMARY KEY (id);
 --
--- Name: Articles_AuthorId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: brett
+-- Name: Articles_AuthorId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: mark
 --
 ALTER TABLE ONLY "Articles"
     ADD CONSTRAINT "Articles_AuthorId_fkey" FOREIGN KEY ("AuthorId") REFERENCES "Authors"(id) ON UPDATE CASCADE ON DELETE SET NULL;
 --
--- Name: public; Type: ACL; Schema: -; Owner: brett
+-- Name: public; Type: ACL; Schema: -; Owner: mark
 --
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM brett;
-GRANT ALL ON SCHEMA public TO brett;
+REVOKE ALL ON SCHEMA public FROM mark;
+GRANT ALL ON SCHEMA public TO mark;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 --
 -- PostgreSQL database dump complete

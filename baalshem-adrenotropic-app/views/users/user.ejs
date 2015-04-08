@@ -1,0 +1,25 @@
+<!--views/users/index.ejs-->
+<!DOCTYPE HTML>
+<html>
+<body>
+	<h2>Welcome, <%= ejsUser.email  %> !</h2>
+<div>
+	<p><b>Info for</b> <%= ejsUser.email  %></p>
+
+	<!-- Only do this part if articles are being passed -->
+	<% if (ejsUser.articles) {  %>
+		<h3>Articles by User</h3>
+			<ul>
+				<% ejsUser.articles.forEach(function(article) {  %>
+				<li><a href="/articles/<%= article.id  %>"><%= article.title  %></a></li>
+				<% });  %>
+			</ul>
+	<% } else { %>
+		<h3>User does not yet have articles in database.</h3>
+	<% } %> 
+	<!-- End if/else -->
+	<!-- END article listing -->
+
+</div>
+</body>
+</html>

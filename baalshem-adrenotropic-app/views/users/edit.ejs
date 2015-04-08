@@ -1,0 +1,15 @@
+<!--views/authors/new.ejs-->
+<!DOCTYPE html>
+
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Add an author</h1>
+    <form method="post" action="/authors/<%= author.id %>?_method=PUT">
+      <input type="text" name="author[first_name]" placeholder="First name" value="<%= author.first_name %>"><br />
+      <input type="text" name="author[last_name]" placeholder="Last name" value="<%= author.last_name %>"><br />
+      <button>Save </button>
+    </form>
+  </body>
+</html>
